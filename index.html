@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Продуктов Каталог - Akim Star</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        'brand': {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            margin: 1cm;
+            size: A4;
+        }
+        
+        .page-break {
+            page-break-before: always;
+        }
+        
+        @media print {
+            .no-print { display: none !important; }
+            body { font-size: 12px; }
+            .print-table { font-size: 10px; }
+            .demo-placeholder { 
+                height: 400px !important; 
+                width: 100% !important;
+            }
+            .cover-background {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+        
+        .demo-placeholder {
+            background: linear-gradient(135deg, #f3f4f6 25%, #e5e7eb 25%, #e5e7eb 50%, #f3f4f6 50%, #f3f4f6 75%, #e5e7eb 75%);
+            background-size: 20px 20px;
+        }
+
+        .cover-background {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://r2.flowith.net/files/o/1748257182382-PhotorealisticModernLivingRoomWithMarbleEffectWall_index_0@1024x1024.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <!-- Enhanced Title Page with Background -->
+    <div class="min-h-screen flex flex-col items-center justify-center cover-background relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30"></div>
+        <div class="relative z-10 text-center max-w-4xl w-full px-2 sm:px-4 md:px-8 px-8">
+            <div class="glass-effect rounded-3xl p-4 sm:p-12 shadow-2xl border border-white/20">
+                <img src="https://r2.flowith.net/files/ce61e1f0-8ef7-47c2-b80a-d4e24553c212/1748254214047-logo_vektor_(1)@1119x368.png" 
+                     alt="Akim Star Logo" 
+                     class="mx-auto mb-8 w-full max-w-xs sm:max-w-sm h-auto drop-shadow-lg">
+                
+                <h1 class="text-6xl font-serif font-bold text-gray-900 mb-6 tracking-tight">
+                    Продуктов Каталог
+                </h1>
+                
+                <h2 class="text-3xl font-semibold text-brand-700 mb-8 font-serif">
+                    Akim Star
+                </h2>
+                
+                <div class="w-32 h-1.5 bg-gradient-to-r from-brand-500 via-brand-600 to-brand-700 mx-auto mb-8 rounded-full"></div>
+                
+                <p class="text-xl text-gray-700 leading-relaxed font-medium">
+                    Професионални строителни материали и решения за вашия дом
+                </p>
+
+                <div class="mt-12 text-sm text-gray-600">
+                    <div class="flex items-center justify-center space-x-2">
+                        <div class="w-2 h-2 bg-brand-500 rounded-full"></div>
+                        <span>Високо качество</span>
+                        <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+                        <span>Професионален сервиз</span>
+                        <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+                        <span>Конкурентни цени</span>
+                        <div class="w-2 h-2 bg-brand-500 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ПВЦ Пана Section -->
+    <div class="page-break bg-gradient-to-br from-white to-blue-50/50 p-8">
+        <div class="max-w-7xl w-full px-2 sm:px-4 md:px-8 mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-serif font-bold text-gray-900 mb-4">
+                    ПВЦ Пана
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto rounded-full"></div>
+                <p class="mt-4 text-lg text-gray-600 font-medium">Висококачествени декоративни панели</p>
+            </div>
+            
+            <div class="bg-white rounded-2xl overflow-hidden overflow-x-auto w-full px-2 sm:px-4 md:px-8">
+                <table class="min-w-full print-table w-full">
+                    <thead class="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white">
+                        <tr>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-left text-xs sm:text-sm md:text-base font-bold tracking-wide">Код</th>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-left text-xs sm:text-sm md:text-base font-bold tracking-wide">Име на продукта</th>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-center text-xs sm:text-sm md:text-base font-bold tracking-wide">Изображение</th>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-center text-xs sm:text-sm md:text-base font-bold tracking-wide">Размери (Ш/В/Д)</th>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-center text-xs sm:text-sm md:text-base font-bold tracking-wide">Цена</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pvc-panels-table" class="divide-y divide-gray-200">
+                        <!-- ПВЦ Пана products will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- ПВЦ Ламели Section -->
+    <div class="page-break bg-gradient-to-br from-white to-green-50/50 p-8">
+        <div class="max-w-7xl w-full px-2 sm:px-4 md:px-8 mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-serif font-bold text-gray-900 mb-4">
+                    ПВЦ Ламели
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-emerald-600 mx-auto rounded-full"></div>
+                <p class="mt-4 text-lg text-gray-600 font-medium">Елегантни ламели за модерен интериор</p>
+            </div>
+            
+            <div class="bg-white rounded-2xl overflow-hidden overflow-x-auto w-full px-2 sm:px-4 md:px-8">
+                <table class="min-w-full print-table w-full">
+                    <thead class="bg-gradient-to-r from-green-600 via-green-700 to-emerald-700 text-white">
+                        <tr>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-left text-xs sm:text-sm md:text-base font-bold tracking-wide">Код</th>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-left text-xs sm:text-sm md:text-base font-bold tracking-wide">Име на продукта</th>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-center text-xs sm:text-sm md:text-base font-bold tracking-wide">Изображение</th>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-center text-xs sm:text-sm md:text-base font-bold tracking-wide">Размери (Ш/В/Д)</th>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-center text-xs sm:text-sm md:text-base font-bold tracking-wide">Цена</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pvc-lamels-table" class="divide-y divide-gray-200">
+                        <!-- ПВЦ Ламели products will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Самозалепващо фолио Section -->
+    <div class="page-break bg-gradient-to-br from-white to-purple-50/50 p-8">
+        <div class="max-w-7xl w-full px-2 sm:px-4 md:px-8 mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-serif font-bold text-gray-900 mb-4">
+                    Самозалепващо фолио
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-violet-600 mx-auto rounded-full"></div>
+                <p class="mt-4 text-lg text-gray-600 font-medium">Лесно приложимо декоративно фолио</p>
+            </div>
+            
+            <div class="bg-white rounded-2xl overflow-hidden overflow-x-auto w-full px-2 sm:px-4 md:px-8">
+                <table class="min-w-full print-table w-full">
+                    <thead class="bg-gradient-to-r from-purple-600 via-purple-700 to-violet-700 text-white">
+                        <tr>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-left text-xs sm:text-sm md:text-base font-bold tracking-wide">Код</th>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-left text-xs sm:text-sm md:text-base font-bold tracking-wide">Име на продукта</th>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-center text-xs sm:text-sm md:text-base font-bold tracking-wide">Изображение</th>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-center text-xs sm:text-sm md:text-base font-bold tracking-wide">Размери (Ш/В/Д)</th>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-center text-xs sm:text-sm md:text-base font-bold tracking-wide">Цена</th>
+                        </tr>
+                    </thead>
+                    <tbody id="folio-table" class="divide-y divide-gray-200">
+                        <!-- Самозалепващо фолио products will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Лепила Section -->
+    <div class="page-break bg-gradient-to-br from-white to-orange-50/50 p-8">
+        <div class="max-w-7xl w-full px-2 sm:px-4 md:px-8 mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-serif font-bold text-gray-900 mb-4">
+                    Лепила
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-orange-500 to-amber-600 mx-auto rounded-full"></div>
+                <p class="mt-4 text-lg text-gray-600 font-medium">Професионални лепилни материали</p>
+            </div>
+            
+            <div class="bg-white rounded-2xl overflow-hidden overflow-x-auto w-full px-2 sm:px-4 md:px-8">
+                <table class="min-w-full print-table w-full">
+                    <thead class="bg-gradient-to-r from-orange-600 via-orange-700 to-amber-700 text-white">
+                        <tr>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-left text-xs sm:text-sm md:text-base font-bold tracking-wide">Код</th>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-left text-xs sm:text-sm md:text-base font-bold tracking-wide">Име на продукта</th>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-center text-xs sm:text-sm md:text-base font-bold tracking-wide">Изображение</th>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-center text-xs sm:text-sm md:text-base font-bold tracking-wide">Размери</th>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-center text-xs sm:text-sm md:text-base font-bold tracking-wide">Цена</th>
+                        </tr>
+                    </thead>
+                    <tbody id="glue-table" class="divide-y divide-gray-200">
+                        <!-- Лепила products will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Алуминиеви лайсни Section -->
+    <div class="page-break bg-gradient-to-br from-white to-gray-50/50 p-8">
+        <div class="max-w-7xl w-full px-2 sm:px-4 md:px-8 mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-serif font-bold text-gray-900 mb-4">
+                    Алуминиеви лайсни
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-gray-500 to-slate-600 mx-auto rounded-full"></div>
+                <p class="mt-4 text-lg text-gray-600 font-medium">Алуминиеви профили за довършителни работи</p>
+            </div>
+            
+            <div class="bg-white rounded-2xl overflow-hidden overflow-x-auto w-full px-2 sm:px-4 md:px-8">
+                <table class="min-w-full print-table w-full">
+                    <thead class="bg-gradient-to-r from-gray-600 via-gray-700 to-slate-700 text-white">
+                        <tr>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-left text-xs sm:text-sm md:text-base font-bold tracking-wide">Код</th>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-left text-xs sm:text-sm md:text-base font-bold tracking-wide">Име на продукта</th>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-center text-xs sm:text-sm md:text-base font-bold tracking-wide">Изображение</th>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-center text-xs sm:text-sm md:text-base font-bold tracking-wide">Размери (Ш/В/Д)</th>
+                            <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-center text-xs sm:text-sm md:text-base font-bold tracking-wide">Цена</th>
+                        </tr>
+                    </thead>
+                    <tbody id="aluminum-strips-table" class="divide-y divide-gray-200">
+                        <!-- Алуминиеви лайсни products will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Demonstration Pages Navigation -->
+    <div class="page-break bg-gradient-to-br from-slate-50 to-blue-50 p-8">
+        <div class="max-w-5xl w-full px-2 sm:px-4 md:px-8 mx-auto text-center">
+            <div class="mb-12">
+                <h2 class="text-4xl font-serif font-bold text-gray-900 mb-4">
+                    Демонстрация на продуктите в интериор
+                </h2>
+                <div class="w-32 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 mx-auto rounded-full"></div>
+                <p class="mt-4 text-lg text-gray-600 font-medium">Вижте как нашите продукти изглеждат в реални условия</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 no-print">
+                <a href="#pvc-panels-demo" onclick="showDemo('pvc-panels')" 
+                   class="group bg-white hover:bg-blue-50 p-8 rounded-2xl border-2 border-blue-200 hover:border-blue-400 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    <div class="text-4xl mb-4">🏠</div>
+                    <h3 class="text-xl font-bold text-blue-800 mb-3">ПВЦ Пана</h3>
+                    <p class="text-blue-600 font-medium">Вижте как изглеждат в стая</p>
+                    <p class="text-sm text-blue-500 mt-2">(6 изображения)</p>
+                </a>
+                
+                <a href="#pvc-lamels-demo" onclick="showDemo('pvc-lamels')" 
+                   class="group bg-white hover:bg-green-50 p-8 rounded-2xl border-2 border-green-200 hover:border-green-400 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    <div class="text-4xl mb-4">🎨</div>
+                    <h3 class="text-xl font-bold text-green-800 mb-3">ПВЦ Ламели</h3>
+                    <p class="text-green-600 font-medium">Вижте как изглеждат в стая</p>
+                    <p class="text-sm text-green-500 mt-2">(1 изображение)</p>
+                </a>
+                
+                <a href="#folio-demo" onclick="showDemo('folio')" 
+                   class="group bg-white hover:bg-purple-50 p-8 rounded-2xl border-2 border-purple-200 hover:border-purple-400 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    <div class="text-4xl mb-4">✨</div>
+                    <h3 class="text-xl font-bold text-purple-800 mb-3">Самозалепващо фолио</h3>
+                    <p class="text-purple-600 font-medium">Вижте как изглежда в стая</p>
+                    <p class="text-sm text-purple-500 mt-2">(5 изображения)</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Demo Sections for ПВЦ Пана - 6 separate pages -->
+    <div id="pvc-panels-demo-1" class="page-break bg-gradient-to-br from-blue-50 to-white p-8">
+        <div class="max-w-5xl w-full px-2 sm:px-4 md:px-8 mx-auto">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-serif font-bold text-blue-900 mb-4">
+                    ПВЦ Пано Вариация 1 - Пример в интериора
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <div class="demo-placeholder border-4 border-dashed border-blue-300 rounded-2xl h-96 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="text-5xl text-blue-400 mb-6">📷</div>
+                        <p class="text-2xl font-bold text-blue-700 mb-2">Място за демонстрационно изображение</p>
+                        <p class="text-blue-600 font-medium">ПВЦ Пано Вариация 1 в реален интериор</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pvc-panels-demo-2" class="page-break bg-gradient-to-br from-blue-50 to-white p-8">
+        <div class="max-w-5xl w-full px-2 sm:px-4 md:px-8 mx-auto">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-serif font-bold text-blue-900 mb-4">
+                    ПВЦ Пано Вариация 2 - Пример в интериора
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <div class="demo-placeholder border-4 border-dashed border-blue-300 rounded-2xl h-96 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="text-5xl text-blue-400 mb-6">📷</div>
+                        <p class="text-2xl font-bold text-blue-700 mb-2">Място за демонстрационно изображение</p>
+                        <p class="text-blue-600 font-medium">ПВЦ Пано Вариация 2 в реален интериор</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pvc-panels-demo-3" class="page-break bg-gradient-to-br from-blue-50 to-white p-8">
+        <div class="max-w-5xl w-full px-2 sm:px-4 md:px-8 mx-auto">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-serif font-bold text-blue-900 mb-4">
+                    ПВЦ Пано Вариация 3 - Пример в интериора
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <div class="demo-placeholder border-4 border-dashed border-blue-300 rounded-2xl h-96 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="text-5xl text-blue-400 mb-6">📷</div>
+                        <p class="text-2xl font-bold text-blue-700 mb-2">Място за демонстрационно изображение</p>
+                        <p class="text-blue-600 font-medium">ПВЦ Пано Вариация 3 в реален интериор</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pvc-panels-demo-4" class="page-break bg-gradient-to-br from-blue-50 to-white p-8">
+        <div class="max-w-5xl w-full px-2 sm:px-4 md:px-8 mx-auto">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-serif font-bold text-blue-900 mb-4">
+                    ПВЦ Пано Вариация 4 - Пример в интериора
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <div class="demo-placeholder border-4 border-dashed border-blue-300 rounded-2xl h-96 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="text-5xl text-blue-400 mb-6">📷</div>
+                        <p class="text-2xl font-bold text-blue-700 mb-2">Място за демонстрационно изображение</p>
+                        <p class="text-blue-600 font-medium">ПВЦ Пано Вариация 4 в реален интериор</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pvc-panels-demo-5" class="page-break bg-gradient-to-br from-blue-50 to-white p-8">
+        <div class="max-w-5xl w-full px-2 sm:px-4 md:px-8 mx-auto">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-serif font-bold text-blue-900 mb-4">
+                    ПВЦ Пано Вариация 5 - Пример в интериора
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <div class="demo-placeholder border-4 border-dashed border-blue-300 rounded-2xl h-96 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="text-5xl text-blue-400 mb-6">📷</div>
+                        <p class="text-2xl font-bold text-blue-700 mb-2">Място за демонстрационно изображение</p>
+                        <p class="text-blue-600 font-medium">ПВЦ Пано Вариация 5 в реален интериор</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pvc-panels-demo-6" class="page-break bg-gradient-to-br from-blue-50 to-white p-8">
+        <div class="max-w-5xl w-full px-2 sm:px-4 md:px-8 mx-auto">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-serif font-bold text-blue-900 mb-4">
+                    ПВЦ Пано Вариация 6 - Пример в интериора
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <div class="demo-placeholder border-4 border-dashed border-blue-300 rounded-2xl h-96 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="text-5xl text-blue-400 mb-6">📷</div>
+                        <p class="text-2xl font-bold text-blue-700 mb-2">Място за демонстрационно изображение</p>
+                        <p class="text-blue-600 font-medium">ПВЦ Пано Вариация 6 в реален интериор</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Demo Section for ПВЦ Ламели - 1 page -->
+    <div id="pvc-lamels-demo" class="page-break bg-gradient-to-br from-green-50 to-white p-8">
+        <div class="max-w-5xl w-full px-2 sm:px-4 md:px-8 mx-auto">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-serif font-bold text-green-900 mb-4">
+                    ПВЦ Ламели - Пример в интериора
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-emerald-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <div class="demo-placeholder border-4 border-dashed border-green-300 rounded-2xl h-96 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="text-5xl text-green-400 mb-6">📷</div>
+                        <p class="text-2xl font-bold text-green-700 mb-2">Място за демонстрационно изображение</p>
+                        <p class="text-green-600 font-medium">ПВЦ Ламели в реален интериор</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Demo Sections for Самозалепващо фолио - 5 separate pages -->
+    <div id="folio-demo-1" class="page-break bg-gradient-to-br from-purple-50 to-white p-8">
+        <div class="max-w-5xl w-full px-2 sm:px-4 md:px-8 mx-auto">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-serif font-bold text-purple-900 mb-4">
+                    Самозалепващо фолио Вариация 1 - Пример в интериора
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-violet-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <div class="demo-placeholder border-4 border-dashed border-purple-300 rounded-2xl h-96 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="text-5xl text-purple-400 mb-6">📷</div>
+                        <p class="text-2xl font-bold text-purple-700 mb-2">Място за демонстрационно изображение</p>
+                        <p class="text-purple-600 font-medium">Самозалепващо фолио Вариация 1 в реален интериор</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="folio-demo-2" class="page-break bg-gradient-to-br from-purple-50 to-white p-8">
+        <div class="max-w-5xl w-full px-2 sm:px-4 md:px-8 mx-auto">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-serif font-bold text-purple-900 mb-4">
+                    Самозалепващо фолио Вариация 2 - Пример в интериора
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-violet-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <div class="demo-placeholder border-4 border-dashed border-purple-300 rounded-2xl h-96 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="text-5xl text-purple-400 mb-6">📷</div>
+                        <p class="text-2xl font-bold text-purple-700 mb-2">Място за демонстрационно изображение</p>
+                        <p class="text-purple-600 font-medium">Самозалепващо фолио Вариация 2 в реален интериор</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="folio-demo-3" class="page-break bg-gradient-to-br from-purple-50 to-white p-8">
+        <div class="max-w-5xl w-full px-2 sm:px-4 md:px-8 mx-auto">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-serif font-bold text-purple-900 mb-4">
+                    Самозалепващо фолио Вариация 3 - Пример в интериора
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-violet-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <div class="demo-placeholder border-4 border-dashed border-purple-300 rounded-2xl h-96 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="text-5xl text-purple-400 mb-6">📷</div>
+                        <p class="text-2xl font-bold text-purple-700 mb-2">Място за демонстрационно изображение</p>
+                        <p class="text-purple-600 font-medium">Самозалепващо фолио Вариация 3 в реален интериор</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="folio-demo-4" class="page-break bg-gradient-to-br from-purple-50 to-white p-8">
+        <div class="max-w-5xl w-full px-2 sm:px-4 md:px-8 mx-auto">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-serif font-bold text-purple-900 mb-4">
+                    Самозалепващо фолио Вариация 4 - Пример в интериора
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-violet-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <div class="demo-placeholder border-4 border-dashed border-purple-300 rounded-2xl h-96 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="text-5xl text-purple-400 mb-6">📷</div>
+                        <p class="text-2xl font-bold text-purple-700 mb-2">Място за демонстрационно изображение</p>
+                        <p class="text-purple-600 font-medium">Самозалепващо фолио Вариация 4 в реален интериор</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="folio-demo-5" class="page-break bg-gradient-to-br from-purple-50 to-white p-8">
+        <div class="max-w-5xl w-full px-2 sm:px-4 md:px-8 mx-auto">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-serif font-bold text-purple-900 mb-4">
+                    Самозалепващо фолио Вариация 5 - Пример в интериора
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-violet-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <div class="demo-placeholder border-4 border-dashed border-purple-300 rounded-2xl h-96 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="text-5xl text-purple-400 mb-6">📷</div>
+                        <p class="text-2xl font-bold text-purple-700 mb-2">Място за демонстрационно изображение</p>
+                        <p class="text-purple-600 font-medium">Самозалепващо фолио Вариация 5 в реален интериор</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Closing Section -->
+    <div class="page-break bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30 p-8">
+        <div class="max-w-5xl w-full px-2 sm:px-4 md:px-8 mx-auto text-center">
+            <div class="bg-white rounded-3xl shadow-2xl p-4 sm:p-12 border border-gray-200 relative overflow-hidden">
+                <!-- Decorative background elements -->
+                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-brand-100 to-brand-200 rounded-full -translate-y-16 translate-x-16 opacity-50"></div>
+                <div class="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-indigo-100 to-purple-200 rounded-full translate-y-12 -translate-x-12 opacity-50"></div>
+                
+                <img src="https://r2.flowith.net/files/ce61e1f0-8ef7-47c2-b80a-d4e24553c212/1748254214047-logo_vektor_(1)@1119x368.png" 
+                     alt="Akim Star Logo" 
+                     class="mx-auto mb-8 w-full max-w-xs sm:max-w-sm h-auto drop-shadow-md relative z-10">
+                
+                <h2 class="text-4xl font-serif font-bold text-gray-900 mb-6 relative z-10">
+                    Благодарим Ви!
+                </h2>
+                
+                <div class="w-32 h-1.5 bg-gradient-to-r from-brand-500 via-brand-600 to-indigo-600 mx-auto mb-8 rounded-full relative z-10"></div>
+                
+                <p class="text-xl text-gray-700 leading-relaxed mb-10 max-w-3xl mx-auto font-medium relative z-10">
+                    Благодарим Ви, че избрахте Akim Star! Ние работим и на едро и можем да предложим по-ниски цени за по-големи количества. Предлагаме индивидуални оферти, съобразени с Вашите нужди.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 relative z-10">
+                    <div class="bg-gradient-to-br from-brand-50 to-blue-100 p-8 rounded-2xl border-2 border-brand-200 shadow-lg">
+                        <div class="text-3xl mb-4">📦</div>
+                        <h3 class="text-2xl font-bold text-brand-900 mb-4">Работа на едро</h3>
+                        <p class="text-brand-700 font-medium text-lg">По-големи количества = по-ниски цени</p>
+                        <div class="mt-4 flex items-center justify-center">
+                            <div class="flex space-x-1">
+                                <div class="w-2 h-2 bg-brand-400 rounded-full"></div>
+                                <div class="w-2 h-2 bg-brand-500 rounded-full"></div>
+                                <div class="w-2 h-2 bg-brand-600 rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-green-50 to-emerald-100 p-8 rounded-2xl border-2 border-green-200 shadow-lg">
+                        <div class="text-3xl mb-4">🎯</div>
+                        <h3 class="text-2xl font-bold text-green-900 mb-4">Индивидуални оферти</h3>
+                        <p class="text-green-700 font-medium text-lg">Съобразени с Вашите нужди</p>
+                        <div class="mt-4 flex items-center justify-center">
+                            <div class="flex space-x-1">
+                                <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                                <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-gray-200 relative z-10">
+                    <p class="text-lg text-gray-600 font-medium">
+                        За повече информация и поръчки се свържете с нас
+                    </p>
+                    <div class="mt-4 flex items-center justify-center space-x-4 text-sm text-gray-500">
+                        <span class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-brand-400 rounded-full"></div>
+                            <span>Професионално качество</span>
+                        </span>
+                        <div class="w-1 h-1 bg-gray-300 rounded-full"></div>
+                        <span class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-green-400 rounded-full"></div>
+                            <span>Бърза доставка</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="catalog.js"></script>
+<script src="catalog.js"></script>
+  <!-- Image Modal/Lightbox -->
+  <div id="image-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 hidden">
+    <button id="image-modal-close" class="absolute top-4 left-4 text-white text-3xl font-bold bg-black bg-opacity-40 rounded-full w-10 h-10 flex items-center justify-center hover:bg-opacity-80 transition-all">&times;</button>
+    <button id="image-modal-prev" class="absolute left-6 top-1/2 -translate-y-1/2 text-white text-4xl font-bold bg-black bg-opacity-40 rounded-full w-12 h-12 flex items-center justify-center hover:bg-opacity-80 transition-all">&#8592;</button>
+    <img id="image-modal-img" src="" alt="Product Image" class="max-h-[80vh] max-w-[90vw] rounded-2xl shadow-2xl border-4 border-white bg-white object-contain" />
+    <button id="image-modal-next" class="absolute right-6 top-1/2 -translate-y-1/2 text-white text-4xl font-bold bg-black bg-opacity-40 rounded-full w-12 h-12 flex items-center justify-center hover:bg-opacity-80 transition-all">&#8594;</button>
+  </div>
+
+</body>
+</html>

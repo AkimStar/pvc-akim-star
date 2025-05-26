@@ -1,0 +1,430 @@
+/* Enhanced styles for the Akim Star catalog */
+
+/* Enhanced font loading and fallbacks */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* Root CSS variables for consistent design */
+:root {
+    --primary-gradient: linear-gradient(135deg, #0ea5e9 0%, #0284c7 50%, #0369a1 100%);
+    --secondary-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-large: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --border-radius: 16px;
+    --border-radius-large: 24px;
+}
+
+/* Base typography improvements */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    letter-spacing: -0.025em;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+}
+
+/* Print-specific enhancements */
+@media print {
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        line-height: 1.5;
+        color: #1f2937 !important;
+        background: white !important;
+    }
+    
+    .page-break {
+        page-break-before: always;
+        page-break-inside: avoid;
+    }
+    
+    .cover-background {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+        background-size: cover !important;
+        background-position: center !important;
+    }
+    
+    .glass-effect {
+        background: rgba(255, 255, 255, 0.95) !important;
+        border: 2px solid #e5e7eb !important;
+    }
+    
+    table {
+        page-break-inside: auto;
+        border-collapse: collapse;
+    }
+    
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+    
+    thead {
+        display: table-header-group;
+    }
+    
+    .print-table {
+        font-size: 11px;
+        line-height: 1.4;
+    }
+    
+    .print-table th,
+    .print-table td {
+        padding: 8px 12px !important;
+        border: 1px solid #d1d5db !important;
+    }
+    
+    .demo-placeholder {
+        height: 300px !important;
+        border: 3px solid #9ca3af !important;
+        background: repeating-linear-gradient(
+            45deg,
+            #f9fafb,
+            #f9fafb 10px,
+            #f3f4f6 10px,
+            #f3f4f6 20px
+        ) !important;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+    
+    .bg-gradient-to-r,
+    .bg-gradient-to-br {
+        background: #374151 !important;
+        color: white !important;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+}
+
+/* Enhanced visual elements */
+.gradient-text {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    transition: all 0.2s ease-out;
+}
+
+.transition-colors {
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Responsive table wrapper */
+@media (max-width: 640px) {
+  .print-table {
+    display: block;
+    width: 100%;
+    border-radius: 0.5rem;
+    background: white;
+    overflow: hidden;
+  }
+  .print-table thead {
+    display: none;
+  }
+  .print-table tr {
+    display: block;
+    margin-bottom: 1.5rem;
+    border-radius: 0.75rem;
+    background: #fff;
+    padding: 1rem;
+  }
+  .print-table td {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 0.5rem 0;
+    min-width: 0;
+    border: none;
+    font-size: 1rem;
+    position: relative;
+  }
+  .print-table td::before {
+    content: attr(data-label);
+    flex: 0 0 120px;
+    color: #6b7280;
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-right: 1rem;
+    text-align: left;
+    min-width: 100px;
+    display: block;
+  }
+}
+
+
+/* Enhanced table styling */
+.print-table {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-large);
+}
+
+.print-table thead th {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.875rem;
+    position: relative;
+}
+
+.print-table thead th::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.print-table tbody tr {
+    transition: all 0.2s ease;
+}
+
+.print-table tbody tr:hover {
+    background-color: #f8fafc !important;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-soft);
+}
+
+.print-table tbody td {
+    font-weight: 500;
+    vertical-align: middle;
+}
+
+/* Enhanced demo placeholder styling */
+.demo-placeholder {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8fafc 25%, #e2e8f0 25%, #e2e8f0 50%, #f8fafc 50%, #f8fafc 75%, #e2e8f0 75%);
+    background-size: 30px 30px;
+    border-radius: var(--border-radius);
+}
+
+.demo-placeholder::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    animation: shimmer 4s infinite ease-in-out;
+}
+
+@keyframes shimmer {
+    0% { 
+        transform: translateX(-100%) translateY(-100%) rotate(45deg); 
+        opacity: 0;
+    }
+    50% { 
+        opacity: 1; 
+    }
+    100% { 
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* Enhanced navigation cards */
+.page-break a[href^="#"] {
+    position: relative;
+    overflow: hidden;
+}
+
+.page-break a[href^="#"]:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-large);
+}
+
+.page-break a[href^="#"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.page-break a[href^="#"]:hover::before {
+    left: 100%;
+}
+
+/* Enhanced scrollbar styling */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: linear-gradient(180deg, #f1f5f9, #e2e8f0);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-gradient);
+    border-radius: 6px;
+    border: 2px solid #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #075985 100%);
+}
+
+/* Glass effect enhancements */
+.glass-effect {
+    backdrop-filter: blur(16px) saturate(1.8);
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: var(--shadow-large);
+}
+
+/* Text shadow for better readability on backgrounds */
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced focus states for accessibility */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid #0ea5e9;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Improved spacing and layout */
+.max-w-5xl {
+    max-width: 64rem;
+}
+
+.max-w-7xl {
+    max-width: 80rem;
+}
+
+/* Enhanced gradient backgrounds */
+.bg-gradient-to-br {
+    background-attachment: fixed;
+}
+
+/* Better micro-interactions */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page-break > div {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Enhanced brand consistency */
+.brand-divider {
+    height: 4px;
+    background: var(--primary-gradient);
+    border-radius: 2px;
+    box-shadow: var(--shadow-soft);
+}
+
+/* Improved layout for better visual hierarchy */
+section {
+    margin-bottom: 2rem;
+}
+
+/* Better contrast and readability */
+.text-enhanced {
+    color: #1f2937;
+    font-weight: 500;
+}
+
+/* Enhanced button and interactive elements styling */
+.interactive-card {
+    background: white;
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-medium);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.interactive-card:hover {
+    box-shadow: var(--shadow-large);
+    transform: translateY(-8px);
+}
+
+/* Enhanced typography scale */
+.text-display {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .text-display {
+        font-size: 2.5rem;
+    }
+}
+
+/* Improved spacing system */
+.section-padding {
+    padding: 2rem 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .section-padding {
+    padding: 3rem 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 4rem 2rem;
+  }
+}
+
+.content-padding {
+    padding: 1rem 0.5rem;
+}
+@media (min-width: 640px) {
+  .content-padding {
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* Better visual separation */
+.visual-separator {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+    margin: 2rem 0;
+}
+
+/* Enhanced color system consistency */
+.brand-blue { color: #0ea5e9; }
+.brand-green { color: #10b981; }
+.brand-purple { color: #8b5cf6; }
+.brand-orange { color: #f59e0b; }
+.brand-gray { color: #6b7280; }

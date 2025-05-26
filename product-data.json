@@ -1,0 +1,168 @@
+{
+  "product_data": [
+    {
+      "category_bg": "ПВЦ Пана",
+      "items": [
+        {
+          "code": "AKIM-PVCP-001",
+          "name_bg": "ПВЦ Пано Вариация 1",
+          "size_description_bg": "1220/2440/3 мм (Ш/В/Д)"
+        },
+        {
+          "code": "AKIM-PVCP-002",
+          "name_bg": "ПВЦ Пано Вариация 2",
+          "size_description_bg": "1220/2440/3 мм (Ш/В/Д)"
+        },
+        {
+          "code": "AKIM-PVCP-003",
+          "name_bg": "ПВЦ Пано Вариация 3",
+          "size_description_bg": "1220/2440/3 мм (Ш/В/Д)"
+        },
+        {
+          "code": "AKIM-PVCP-004",
+          "name_bg": "ПВЦ Пано Вариация 4",
+          "size_description_bg": "1220/2440/3 мм (Ш/В/Д)"
+        },
+        {
+          "code": "AKIM-PVCP-005",
+          "name_bg": "ПВЦ Пано Вариация 5",
+          "size_description_bg": "1220/2440/3 мм (Ш/В/Д)"
+        },
+        {
+          "code": "AKIM-PVCP-006",
+          "name_bg": "ПВЦ Пано Вариация 6",
+          "size_description_bg": "1220/2440/3 мм (Ш/В/Д)"
+        }
+      ]
+    },
+    {
+      "category_bg": "ПВЦ Ламели",
+      "items": [
+        {
+          "code": "AKIM-PVCL1-001",
+          "name_bg": "ПВЦ Ламел 155мм Вариация 1",
+          "size_description_bg": "155/2970/17 мм (Ш/В/Д)"
+        },
+        {
+          "code": "AKIM-PVCL1-002",
+          "name_bg": "ПВЦ Ламел 155мм Вариация 2",
+          "size_description_bg": "155/2970/17 мм (Ш/В/Д)"
+        },
+        {
+          "code": "AKIM-PVCL1-003",
+          "name_bg": "ПВЦ Ламел 155мм Вариация 3",
+          "size_description_bg": "155/2970/17 мм (Ш/В/Д)"
+        },
+        {
+          "code": "AKIM-PVCL1-004",
+          "name_bg": "ПВЦ Ламел 155мм Вариация 4",
+          "size_description_bg": "155/2970/17 мм (Ш/В/Д)"
+        },
+        {
+          "code": "AKIM-PVCL1-005",
+          "name_bg": "ПВЦ Ламел 155мм Вариация 5",
+          "size_description_bg": "155/2970/17 мм (Ш/В/Д)"
+        },
+        {
+          "code": "AKIM-PVCL1-006",
+          "name_bg": "ПВЦ Ламел 155мм Вариация 6",
+          "size_description_bg": "155/2970/17 мм (Ш/В/Д)"
+        },
+        {
+          "code": "AKIM-PVCL2-001",
+          "name_bg": "ПВЦ Ламел 165мм Вариация 1",
+          "size_description_bg": "165/2970/20 мм (Ш/В/Д)"
+        },
+        {
+          "code": "AKIM-PVCL2-002",
+          "name_bg": "ПВЦ Ламел 165мм Вариация 2",
+          "size_description_bg": "165/2970/20 мм (Ш/В/Д)"
+        },
+        {
+          "code": "AKIM-PVCL2-003",
+          "name_bg": "ПВЦ Ламел 165мм Вариация 3",
+          "size_description_bg": "165/2970/20 мм (Ш/В/Д)"
+        },
+        {
+          "code": "AKIM-PVCL2-004",
+          "name_bg": "ПВЦ Ламел 165мм Вариация 4",
+          "size_description_bg": "165/2970/20 мм (Ш/В/Д)"
+        },
+        {
+          "code": "AKIM-PVCL2-005",
+          "name_bg": "ПВЦ Ламел 165мм Вариация 5",
+          "size_description_bg": "165/2970/20 мм (Ш/В/Д)"
+        },
+        {
+          "code": "AKIM-PVCL2-006",
+          "name_bg": "ПВЦ Ламел 165мм Вариация 6",
+          "size_description_bg": "165/2970/20 мм (Ш/В/Д)"
+        }
+      ]
+    },
+    {
+      "category_bg": "Самозалепващо фолио",
+      "items": [
+        {
+          "code": "AKIM-FOLI-001",
+          "name_bg": "Самозалепващо фолио Вариация 1",
+          "size_description_bg": "1200/3000/2 мм (Ш/В/Д)"
+        },
+        {
+          "code": "AKIM-FOLI-002",
+          "name_bg": "Самозалепващо фолио Вариация 2",
+          "size_description_bg": "1200/3000/2 мм (Ш/В/Д)"
+        },
+        {
+          "code": "AKIM-FOLI-003",
+          "name_bg": "Самозалепващо фолио Вариация 3",
+          "size_description_bg": "1200/3000/2 мм (Ш/В/Д)"
+        },
+        {
+          "code": "AKIM-FOLI-004",
+          "name_bg": "Самозалепващо фолио Вариация 4",
+          "size_description_bg": "1200/3000/2 мм (Ш/В/Д)"
+        },
+        {
+          "code": "AKIM-FOLI-005",
+          "name_bg": "Самозалепващо фолио Вариация 5",
+          "size_description_bg": "1200/3000/2 мм (Ш/В/Д)"
+        }
+      ]
+    },
+    {
+      "category_bg": "Лепила",
+      "items": [
+        {
+          "code": "AKIM-GLUE-001",
+          "name_bg": "Моментно лепило Moment One for all",
+          "size_description_bg": "390 гр"
+        }
+      ]
+    },
+    {
+      "category_bg": "Алуминиеви лайсни",
+      "items": [
+        {
+          "code": "AKIMAL-W",
+          "name_bg": "Алуминиева лайсна - Бяла",
+          "size_description_bg": "~0/~0/3000 мм (Ш/В/Д)"
+        },
+        {
+          "code": "AKIMAL-B",
+          "name_bg": "Алуминиева лайсна - Черна",
+          "size_description_bg": "~0/~0/3000 мм (Ш/В/Д)"
+        }
+      ]
+    }
+  ],
+  "column_headers_bg": {
+    "code": "Код",
+    "name": "Име на продукта",
+    "image": "Изображение",
+    "size": "Размери (Ш/В/Д)",
+    "price": "Цена"
+  },
+  "closing_remarks_bg": "Благодарим Ви, че избрахте Akim Star! Ние работим и на едро и можем да предложим по-ниски цени за по-големи количества. Предлагаме индивидуални оферти, съобразени с Вашите нужди."
+}
+

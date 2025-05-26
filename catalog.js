@@ -82,8 +82,10 @@ function createProductRow(item, index) {
     const priceTd = document.createElement('td');
     priceTd.className = "px-2 sm:px-4 md:px-6 py-2 sm:py-4 text-center";
     priceTd.setAttribute('data-label', 'Цена');
+    // Format price with two decimals and add currency
+    let priceDisplay = (typeof item.price !== 'undefined' && item.price !== null) ? Number(item.price).toFixed(2) + ' лв.' : '—';
     priceTd.innerHTML = `<div class="bg-yellow-50 border border-yellow-200 rounded px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm md:text-base text-yellow-700">
-        _____ лв.
+        ${priceDisplay}
     </div>`;
 
     row.appendChild(codeTd);

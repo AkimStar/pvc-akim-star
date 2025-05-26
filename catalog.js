@@ -148,6 +148,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Click handlers
     document.body.addEventListener('click', function (e) {
+        // Handle lamel gallery images
+        if (e.target.classList && e.target.classList.contains('lamel-gallery-img')) {
+            const src = e.target.getAttribute('src');
+            modalImg.onerror = null;
+            modalImg.src = src;
+            modal.classList.remove('hidden');
+            return;
+        }
         if (e.target.closest('.product-image-placeholder')) {
             const placeholder = e.target.closest('.product-image-placeholder');
             const placeholders = getAllPlaceholders();

@@ -16,10 +16,43 @@ function populateProductTables(data) {
     data.product_data.forEach(category => {
         const tableId = getCategoryTableId(category.category_bg);
         const tableBody = document.getElementById(tableId);
-        
+
+        // Render mobile cards for Самозалепващо фолио
+        if (category.category_bg === 'Самозалепващо фолио') {
+            const cardsContainer = document.getElementById('folio-cards-mobile');
+            if (cardsContainer) {
+                cardsContainer.innerHTML = '';
+                category.items.forEach((item) => {
+                    const card = document.createElement('div');
+                    card.className = 'bg-white rounded-2xl shadow-lg p-5 flex flex-col gap-3';
+                    card.innerHTML = `
+                        <div class="mb-2">
+                            <div class="text-xs font-semibold text-gray-500 tracking-wide uppercase mb-1">Код</div>
+                            <div class="text-base font-mono text-gray-900">${item.code}</div>
+                        </div>
+                        <div class="mb-2">
+                            <div class="text-xs font-semibold text-gray-500 tracking-wide uppercase mb-1">Име на продукта</div>
+                            <div class="text-base font-bold text-purple-900">${item.name_bg}</div>
+                        </div>
+                        <div class="flex justify-center items-center mb-2">
+                            <img src="images/product-${item.code}.jpeg" data-jpg="images/product-${item.code}.jpg" alt="${item.name_bg}" class="w-28 h-20 object-contain mx-auto rounded-xl shadow border-2 border-purple-100 bg-white product-image-placeholder" onerror="if(this.src.endsWith('.jpeg')) this.src=this.getAttribute('data-jpg'); else this.onerror=null; this.outerHTML='<div class=\'w-28 h-20 flex items-center justify-center text-xs text-gray-400 bg-gray-50 border rounded-xl\'>Изображение</div>';">
+                        </div>
+                        <div class="mb-2">
+                            <div class="text-xs font-semibold text-gray-500 tracking-wide uppercase mb-1">Размери (Ш/В/Д)</div>
+                            <div class="text-base text-gray-900">${item.size_description_bg}</div>
+                        </div>
+                        <div>
+                            <div class="text-xs font-semibold text-gray-500 tracking-wide uppercase mb-1">Цена</div>
+                            <div class="inline-block bg-yellow-50 border border-yellow-200 rounded px-3 py-1 text-base font-bold text-yellow-700">${item.price} лв</div>
+                        </div>
+                    `;
+                    cardsContainer.appendChild(card);
+                });
+            }
+        }
+
         if (tableBody) {
             tableBody.innerHTML = '';
-            
             category.items.forEach((item, index) => {
                 const row = createProductRow(item, index);
                 tableBody.appendChild(row);

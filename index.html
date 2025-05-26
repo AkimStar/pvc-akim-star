@@ -5,7 +5,7 @@
     <meta name="description" content="Akim Star - Над 20 години опит в производството и доставката на висококачествени ПВЦ пана, ламели и самозалепващо фолио. Открийте нашия продуктов каталог с конкурентни цени, бърза доставка и индивидуални оферти за клиенти от цяла България.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ПВЦ Пана, Ламели и Самозалепващо Фолио - Каталог | Akim Star</title>
-    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==">
+    <link rel="icon" type="image/png" href="https://r2.flowith.net/files/ce61e1f0-8ef7-47c2-b80a-d4e24553c212/1748254214047-logo_vektor_(1)@1119x368.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
     <script>
@@ -195,8 +195,11 @@
                 <p class="mt-4 text-lg text-gray-600 font-medium">Лесно приложимо декоративно фолио</p>
             </div>
             
+            <!-- Mobile Card Layout for Самозалепващо фолио (only visible on mobile) -->
+            <div id="folio-cards-mobile" class="block sm:hidden space-y-4"></div>
+
             <div class="bg-white rounded-2xl overflow-hidden overflow-x-auto w-full px-2 sm:px-4 md:px-8">
-                <table class="min-w-full print-table w-full">
+                <table class="min-w-full print-table w-full hidden sm:table">
                     <thead class="bg-gradient-to-r from-purple-600 via-purple-700 to-violet-700 text-white">
                         <tr>
                             <th class="px-2 sm:px-4 md:px-8 py-3 sm:py-5 text-left text-xs sm:text-sm md:text-base font-bold tracking-wide">Код</th>
@@ -438,12 +441,8 @@
                 <div class="w-24 h-1 bg-gradient-to-r from-green-500 to-emerald-600 mx-auto rounded-full"></div>
             </div>
             <div class="bg-white rounded-2xl shadow-xl p-8">
-                <div class="demo-placeholder border-4 border-dashed border-green-300 rounded-2xl h-96 flex items-center justify-center">
-                    <div class="text-center">
-                        <div class="text-5xl text-green-400 mb-6">📷</div>
-                        <p class="text-2xl font-bold text-green-700 mb-2">Място за демонстрационно изображение</p>
-                        <p class="text-green-600 font-medium">ПВЦ Ламели в реален интериор</p>
-                    </div>
+                <div class="flex flex-col sm:flex-row gap-6 w-full justify-center items-center my-4">
+                    <img src="images/demo-lameli.png" alt="ПВЦ Ламели – демонстрация в интериор" class="rounded-xl shadow-md max-h-72 object-contain mx-auto border-2 border-green-200 bg-white cursor-pointer lamel-gallery-img" style="max-width:95%;">
                 </div>
             </div>
         </div>
@@ -459,26 +458,24 @@
                 <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-violet-600 mx-auto rounded-full"></div>
             </div>
             <div class="bg-white rounded-2xl shadow-xl p-8">
-                <div class="demo-placeholder border-4 border-dashed border-purple-300 rounded-2xl h-96 flex items-center justify-center">
-                    <div class="text-center">
-                        <div class="text-5xl text-purple-400 mb-6">📷</div>
-                        <p class="text-2xl font-bold text-purple-700 mb-2">Място за демонстрационно изображение</p>
-                        <p class="text-purple-600 font-medium">Самозалепващо фолио Вариация 1 в реален интериор</p>
-                    </div>
+                <div class="flex flex-col sm:flex-row gap-6 w-full justify-center items-center my-4">
+                    <img src="images/demo-AKIM-FOLI-001.png" alt="Самозалепващо фолио Вариация 1 – демонстрация" class="rounded-xl shadow-md max-h-72 object-contain mx-auto border-2 border-purple-200 bg-white cursor-pointer folio-gallery-img" style="max-width:95%;">
                 </div>
-            </details>
-            <details class="bg-white rounded-xl shadow p-4 group">
-                <summary class="cursor-pointer text-lg font-semibold text-blue-800 group-open:text-blue-600 transition-colors">Как се почистват паната и фолиото?</summary>
-                <div class="mt-2 text-blue-900">
-                    Почиствайте повърхностите с мека кърпа и неагресивен почистващ препарат. Избягвайте абразивни материали и силни химикали.
+            </div>
+        </div>
+    </div>
+
+    <div id="folio-demo-2" class="page-break bg-gradient-to-br from-purple-50 to-white p-8">
+        <div class="max-w-5xl w-full px-2 sm:px-4 md:px-8 mx-auto">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-serif font-bold text-purple-900 mb-4">
+                    Самозалепващо фолио Вариация 2 - Пример в интериора
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-violet-600 mx-auto rounded-full"></div>
             </div>
             <div class="bg-white rounded-2xl shadow-xl p-8">
-                <div class="demo-placeholder border-4 border-dashed border-purple-300 rounded-2xl h-96 flex items-center justify-center">
-                    <div class="text-center">
-                        <div class="text-5xl text-purple-400 mb-6">📷</div>
-                        <p class="text-2xl font-bold text-purple-700 mb-2">Място за демонстрационно изображение</p>
-                        <p class="text-purple-600 font-medium">Самозалепващо фолио Вариация 2 в реален интериор</p>
-                    </div>
+                <div class="flex flex-col sm:flex-row gap-6 w-full justify-center items-center my-4">
+                    <img src="images/demo-AKIM-FOLI-002.png" alt="Самозалепващо фолио Вариация 2 – демонстрация" class="rounded-xl shadow-md max-h-72 object-contain mx-auto border-2 border-purple-200 bg-white cursor-pointer folio-gallery-img" style="max-width:95%;">
                 </div>
             </div>
         </div>
@@ -493,12 +490,8 @@
                 <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-violet-600 mx-auto rounded-full"></div>
             </div>
             <div class="bg-white rounded-2xl shadow-xl p-8">
-                <div class="demo-placeholder border-4 border-dashed border-purple-300 rounded-2xl h-96 flex items-center justify-center">
-                    <div class="text-center">
-                        <div class="text-5xl text-purple-400 mb-6">📷</div>
-                        <p class="text-2xl font-bold text-purple-700 mb-2">Място за демонстрационно изображение</p>
-                        <p class="text-purple-600 font-medium">Самозалепващо фолио Вариация 3 в реален интериор</p>
-                    </div>
+                <div class="flex flex-col sm:flex-row gap-6 w-full justify-center items-center my-4">
+                    <img src="images/demo-AKIM-FOLI-003.png" alt="Самозалепващо фолио Вариация 3 – демонстрация" class="rounded-xl shadow-md max-h-72 object-contain mx-auto border-2 border-purple-200 bg-white cursor-pointer folio-gallery-img" style="max-width:95%;">
                 </div>
             </div>
         </div>
@@ -513,13 +506,9 @@
                 <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-violet-600 mx-auto rounded-full"></div>
             </div>
             <div class="bg-white rounded-2xl shadow-xl p-8">
-                <div class="demo-placeholder border-4 border-dashed border-purple-300 rounded-2xl h-96 flex items-center justify-center">
-                    <div class="text-center">
-                        <div class="text-5xl text-purple-400 mb-6">📷</div>
-                        <p class="text-2xl font-bold text-purple-700 mb-2">Място за демонстрационно изображение</p>
-                        <p class="text-purple-600 font-medium">Самозалепващо фолио Вариация 4 в реален интериор</p>
-                    </div>
-                </div>
+                <div class="flex flex-col sm:flex-row gap-6 w-full justify-center items-center my-4">
+    <img src="images/demo-AKIM-FOLI-004.png" alt="Самозалепващо фолио Вариация 4 – демонстрация" class="rounded-xl shadow-md max-h-72 object-contain mx-auto border-2 border-purple-200 bg-white cursor-pointer folio-gallery-img" style="max-width:95%;">
+</div>
             </div>
         </div>
     </div>
@@ -533,20 +522,16 @@
                 <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-violet-600 mx-auto rounded-full"></div>
             </div>
             <div class="bg-white rounded-2xl shadow-xl p-8">
-                <div class="demo-placeholder border-4 border-dashed border-purple-300 rounded-2xl h-96 flex items-center justify-center">
-                    <div class="text-center">
-                        <div class="text-5xl text-purple-400 mb-6">📷</div>
-                        <p class="text-2xl font-bold text-purple-700 mb-2">Място за демонстрационно изображение</p>
-                        <p class="text-purple-600 font-medium">Самозалепващо фолио Вариация 5 в реален интериор</p>
-                    </div>
-                </div>
+                <div class="flex flex-col sm:flex-row gap-6 w-full justify-center items-center my-4">
+    <img src="images/demo-AKIM-FOLI-005.png" alt="Самозалепващо фолио Вариация 5 – демонстрация" class="rounded-xl shadow-md max-h-72 object-contain mx-auto border-2 border-purple-200 bg-white cursor-pointer folio-gallery-img" style="max-width:95%;">
+</div>
             </div>
         </div>
     </div>
 
     <!-- FAQ Section -->
     <section id="faq" class="max-w-4xl mx-auto my-16 bg-blue-50 rounded-3xl shadow-xl p-10">
-        <h2 class="text-3xl font-serif font-bold text-blue-900 mb-8 text-center">Често задавани въпроси (FAQ)</h2>
+        <h2 class="text-3xl font-serif font-bold text-blue-900 mb-8 text-center">Често задавани въпроси</h2>
         <div class="space-y-5">
             <details class="bg-white rounded-xl shadow p-4 group">
                 <summary class="cursor-pointer text-lg font-semibold text-blue-800 group-open:text-blue-600 transition-colors">Защо да купите от нас?</summary>

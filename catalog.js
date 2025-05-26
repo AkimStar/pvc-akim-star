@@ -148,11 +148,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Click handlers
     document.body.addEventListener('click', function (e) {
-        // Handle lamel gallery images
-        if (e.target.classList && e.target.classList.contains('lamel-gallery-img')) {
+        // Handle lamel gallery images and demo-gallery-img
+        if (e.target.classList && (e.target.classList.contains('lamel-gallery-img') || e.target.classList.contains('demo-gallery-img'))) {
             const src = e.target.getAttribute('src');
             modalImg.onerror = null;
             modalImg.src = src;
+            modal.classList.remove('hidden');
+            return;
+        }
+        if (e.target.closest('.demo-image-placeholder')) {
+            const placeholder = e.target.closest('.demo-image-placeholder');
+            const code = placeholder.getAttribute('data-code');
+            const demoSrc = `images/demo-${code}.png`;
+            modalImg.onerror = null;
+            modalImg.src = demoSrc;
             modal.classList.remove('hidden');
             return;
         }

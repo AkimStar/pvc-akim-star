@@ -22,32 +22,55 @@ function populateProductTables(data) {
             const cardsContainer = document.getElementById('folio-cards-mobile');
             if (cardsContainer) {
                 cardsContainer.innerHTML = '';
-                category.items.forEach((item) => {
-                    const card = document.createElement('div');
-                    card.className = 'bg-white rounded-2xl shadow-lg p-5 flex flex-col gap-3';
-                    card.innerHTML = `
-                        <div class="mb-2">
-                            <div class="text-xs font-semibold text-gray-500 tracking-wide uppercase mb-1">Код</div>
-                            <div class="text-base font-mono text-gray-900">${item.code}</div>
-                        </div>
-                        <div class="mb-2">
-                            <div class="text-xs font-semibold text-gray-500 tracking-wide uppercase mb-1">Име на продукта</div>
-                            <div class="text-base font-bold text-purple-900">${item.name_bg}</div>
-                        </div>
-                        <div class="flex justify-center items-center mb-2">
-                            <img src="images/product-${item.code}.jpeg" data-jpg="images/product-${item.code}.jpg" alt="${item.name_bg}" class="w-28 h-20 object-contain mx-auto rounded-xl shadow border-2 border-purple-100 bg-white product-image-placeholder" onerror="if(this.src.endsWith('.jpeg')) this.src=this.getAttribute('data-jpg'); else this.onerror=null; this.outerHTML='<div class=\'w-28 h-20 flex items-center justify-center text-xs text-gray-400 bg-gray-50 border rounded-xl\'>Изображение</div>';">
-                        </div>
-                        <div class="mb-2">
-                            <div class="text-xs font-semibold text-gray-500 tracking-wide uppercase mb-1">Размери (Ш/В/Д)</div>
-                            <div class="text-base text-gray-900">${item.size_description_bg}</div>
-                        </div>
-                        <div>
-                            <div class="text-xs font-semibold text-gray-500 tracking-wide uppercase mb-1">Цена</div>
-                            <div class="inline-block bg-yellow-50 border border-yellow-200 rounded px-3 py-1 text-base font-bold text-yellow-700">${item.price} лв</div>
-                        </div>
-                    `;
-                    cardsContainer.appendChild(card);
-                });
+                category.items.forEach((item, index) => {
+    // Use the same structure as createProductRow
+    const table = document.createElement('table');
+    table.className = 'print-table w-full mb-6';
+    const tbody = document.createElement('tbody');
+    const row = document.createElement('tr');
+    row.className = index % 2 === 0 ? 'bg-gray-50' : 'bg-white';
+
+    // Код
+    const codeTd = document.createElement('td');
+    codeTd.className = "px-2 sm:px-4 md:px-6 py-2 sm:py-4 text-xs sm:text-sm md:text-base font-mono text-gray-900";
+    codeTd.setAttribute('data-label', 'Код');
+    codeTd.textContent = item.code;
+
+    // Име на продукта
+    const nameTd = document.createElement('td');
+    nameTd.className = "px-2 sm:px-4 md:px-6 py-2 sm:py-4 text-xs sm:text-sm md:text-base font-medium text-gray-900";
+    nameTd.setAttribute('data-label', 'Име на продукта');
+    nameTd.textContent = item.name_bg;
+
+    // Изображение
+    const imageTd = document.createElement('td');
+    imageTd.className = "px-2 sm:px-4 md:px-6 py-2 sm:py-4 text-center";
+    imageTd.setAttribute('data-label', 'Изображение');
+    imageTd.innerHTML = `<img src="images/product-${item.code}.jpeg" data-jpg="images/product-${item.code}.jpg" alt="${item.name_bg}" class="w-28 h-20 object-contain mx-auto rounded-xl shadow border-2 border-purple-100 bg-white product-image-placeholder" onerror="if(this.src.endsWith('.jpeg')) this.src=this.getAttribute('data-jpg'); else this.onerror=null; this.outerHTML='<div class=\'w-28 h-20 flex items-center justify-center text-xs text-gray-400 bg-gray-50 border rounded-xl\'>Изображение</div>';">`;
+
+    // Размери
+    const sizeTd = document.createElement('td');
+    sizeTd.className = "px-2 sm:px-4 md:px-6 py-2 sm:py-4 text-xs sm:text-sm md:text-base text-gray-900";
+    sizeTd.setAttribute('data-label', 'Размери (Ш/В/Д)');
+    sizeTd.textContent = item.size_description_bg;
+
+    // Цена
+    const priceTd = document.createElement('td');
+    priceTd.className = "px-2 sm:px-4 md:px-6 py-2 sm:py-4 text-center";
+    priceTd.setAttribute('data-label', 'Цена');
+    let priceDisplay = (typeof item.price !== 'undefined' && item.price !== null) ? Number(item.price).toFixed(2) + ' лв.' : '—';
+    priceTd.innerHTML = `<div class=\"bg-yellow-50 border border-yellow-200 rounded px-2 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm md:text-base text-yellow-700\">${priceDisplay}</div>`;
+
+    row.appendChild(codeTd);
+    row.appendChild(nameTd);
+    row.appendChild(imageTd);
+    row.appendChild(sizeTd);
+    row.appendChild(priceTd);
+
+    tbody.appendChild(row);
+    table.appendChild(tbody);
+    cardsContainer.appendChild(table);
+});
             }
         }
 
@@ -98,9 +121,25 @@ function createProductRow(item, index) {
     const imageTd = document.createElement('td');
     imageTd.className = "px-2 sm:px-4 md:px-6 py-2 sm:py-4 text-center";
     imageTd.setAttribute('data-label', 'Изображение');
+    
+    // Special handling for aluminum strip images
+    let imageSrc = '';
+    let dataJpg = '';
+    
+    if (item.code === 'AKIMAL-W') {
+        imageSrc = 'images/bqlalaisna.png';
+        dataJpg = 'images/bqlalaisna.png';
+    } else if (item.code === 'AKIMAL-B') {
+        imageSrc = 'images/chernalaisna.png';
+        dataJpg = 'images/chernalaisna.png';
+    } else {
+        imageSrc = `images/product-${item.code}.jpeg`;
+        dataJpg = `images/product-${item.code}.jpg`;
+    }
+    
     imageTd.innerHTML = `<img 
-        src="images/product-${item.code}.jpeg" 
-        data-jpg="images/product-${item.code}.jpg" 
+        src="${imageSrc}" 
+        data-jpg="${dataJpg}" 
         alt="${item.name_bg}" 
         class="w-20 h-16 object-contain mx-auto rounded cursor-pointer product-image-placeholder" 
         data-index="${index}" data-code="${item.code}"
@@ -141,24 +180,59 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentIndex = 0;
     let currentImages = [];
 
-    // Collect all image placeholders
+    // Collect all image placeholders and sort them by their position in the document (top to bottom)
     function getAllPlaceholders() {
-        return Array.from(document.querySelectorAll('.product-image-placeholder'));
+        const images = Array.from(document.querySelectorAll('.product-image-placeholder, .demo-gallery-img, .folio-gallery-img'));
+        
+        // Sort images based on their position in the document (top to bottom)
+        images.sort(function(a, b) {
+            // Get the position of each element in the document
+            const posA = a.getBoundingClientRect().top + window.scrollY;
+            const posB = b.getBoundingClientRect().top + window.scrollY;
+            
+            // Sort by vertical position (top to bottom)
+            return posA - posB;
+        });
+        
+        return images;
     }
 
     function showModal(index) {
+        // Always refresh the list of images to ensure we have the current document order
         currentImages = getAllPlaceholders();
         currentIndex = index;
-        const code = currentImages[currentIndex].getAttribute('data-code');
-        // Try .jpeg first, fallback to .jpg if not found
-        const jpegSrc = `images/product-${code}.jpeg`;
-        const jpgSrc = `images/product-${code}.jpg`;
-        modalImg.onerror = function () {
-            if (modalImg.src.endsWith('.jpeg')) {
-                modalImg.src = jpgSrc;
+        
+        // Get the current image
+        const currentImage = currentImages[currentIndex];
+        
+        // If it's a demo or folio gallery image, use its src directly
+        if (currentImage.classList.contains('demo-gallery-img') || currentImage.classList.contains('folio-gallery-img') || currentImage.classList.contains('lamel-gallery-img')) {
+            modalImg.onerror = null;
+            modalImg.src = currentImage.getAttribute('src');
+        } else {
+            // For product images, use the data-code to construct the path
+            const code = currentImage.getAttribute('data-code');
+            
+            // Special handling for aluminum strip images
+            if (code === 'AKIMAL-W') {
+                modalImg.onerror = null;
+                modalImg.src = 'images/bqlalaisna.png';
+            } else if (code === 'AKIMAL-B') {
+                modalImg.onerror = null;
+                modalImg.src = 'images/chernalaisna.png';
+            } else {
+                // Standard product images - try .jpeg first, fallback to .jpg if not found
+                const jpegSrc = `images/product-${code}.jpeg`;
+                const jpgSrc = `images/product-${code}.jpg`;
+                modalImg.onerror = function () {
+                    if (modalImg.src.endsWith('.jpeg')) {
+                        modalImg.src = jpgSrc;
+                    }
+                };
+                modalImg.src = jpegSrc;
             }
-        };
-        modalImg.src = jpegSrc;
+        }
+        
         modal.classList.remove('hidden');
     }
 
@@ -181,21 +255,43 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Click handlers
     document.body.addEventListener('click', function (e) {
-        // Handle lamel gallery images and demo-gallery-img
-        if (e.target.classList && (e.target.classList.contains('lamel-gallery-img') || e.target.classList.contains('demo-gallery-img'))) {
-            const src = e.target.getAttribute('src');
-            modalImg.onerror = null;
-            modalImg.src = src;
-            modal.classList.remove('hidden');
+        // Handle lamel gallery images, demo-gallery-img and folio-gallery-img
+        if (e.target.classList && (e.target.classList.contains('lamel-gallery-img') || e.target.classList.contains('demo-gallery-img') || e.target.classList.contains('folio-gallery-img'))) {
+            // Get all images in document order
+            const allImages = getAllPlaceholders();
+            // Find the index of the clicked image
+            const clickedIndex = allImages.indexOf(e.target);
+            
+            if (clickedIndex !== -1) {
+                // Open the modal with the correct index
+                showModal(clickedIndex);
+            } else {
+                // Fallback to direct src setting if not found in the array
+                const src = e.target.getAttribute('src');
+                modalImg.onerror = null;
+                modalImg.src = src;
+                modal.classList.remove('hidden');
+            }
             return;
         }
         if (e.target.closest('.demo-image-placeholder')) {
             const placeholder = e.target.closest('.demo-image-placeholder');
-            const code = placeholder.getAttribute('data-code');
-            const demoSrc = `images/demo-${code}.png`;
-            modalImg.onerror = null;
-            modalImg.src = demoSrc;
-            modal.classList.remove('hidden');
+            // Get all images in document order
+            const allImages = getAllPlaceholders();
+            // Find the index of the clicked image
+            const clickedIndex = allImages.indexOf(placeholder);
+            
+            if (clickedIndex !== -1) {
+                // Open the modal with the correct index
+                showModal(clickedIndex);
+            } else {
+                // Fallback to direct src setting if not found in the array
+                const code = placeholder.getAttribute('data-code');
+                const demoSrc = `images/demo-${code}.png`;
+                modalImg.onerror = null;
+                modalImg.src = demoSrc;
+                modal.classList.remove('hidden');
+            }
             return;
         }
         if (e.target.closest('.product-image-placeholder')) {

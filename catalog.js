@@ -46,7 +46,17 @@ function populateProductTables(data) {
     const imageTd = document.createElement('td');
     imageTd.className = "px-2 sm:px-4 md:px-6 py-2 sm:py-4 text-center";
     imageTd.setAttribute('data-label', 'Изображение');
-    imageTd.innerHTML = `<img src="images/product-${item.code}.jpeg" data-jpg="images/product-${item.code}.jpg" alt="${item.name_bg}" class="w-28 h-20 object-contain mx-auto rounded-xl shadow border-2 border-purple-100 bg-white product-image-placeholder" onerror="if(this.src.endsWith('.jpeg')) this.src=this.getAttribute('data-jpg'); else this.onerror=null; this.outerHTML='<div class=\'w-28 h-20 flex items-center justify-center text-xs text-gray-400 bg-gray-50 border rounded-xl\'>Изображение</div>';">`;
+    // Special handling for AKIM-FOLI products in mobile cards
+    let imgSrc, imgDataJpg;
+    if (item.code && item.code.startsWith('AKIM-FOLI-')) {
+        const num = item.code.slice(-3);
+        imgSrc = `images/product-AKIM-FOLI-${num}.jpeg`;
+        imgDataJpg = imgSrc;
+    } else {
+        imgSrc = `images/product-${item.code}.jpeg`;
+        imgDataJpg = `images/product-${item.code}.jpg`;
+    }
+    imageTd.innerHTML = `<img src="${imgSrc}" data-jpg="${imgDataJpg}" alt="${item.name_bg}" class="w-28 h-20 object-contain mx-auto rounded-xl shadow border-2 border-purple-100 bg-white product-image-placeholder" data-code="${item.code}" onerror="if(this.src.endsWith('.jpeg')) this.src=this.getAttribute('data-jpg'); else this.onerror=null; this.outerHTML='<div class=\'w-28 h-20 flex items-center justify-center text-xs text-gray-400 bg-gray-50 border rounded-xl\'>Изображение</div>';">`;
 
     // Размери
     const sizeTd = document.createElement('td');
@@ -132,6 +142,11 @@ function createProductRow(item, index) {
     } else if (item.code === 'AKIMAL-B') {
         imageSrc = 'images/chernalaisna.png';
         dataJpg = 'images/chernalaisna.png';
+    } else if (item.code && item.code.startsWith('AKIM-FOLI-')) {
+        // Special handling for AKIM-FOLI products
+        const num = item.code.slice(-3);
+        imageSrc = `images/product-AKIM-FOLI-${num}.jpeg`;
+        dataJpg = imageSrc;
     } else {
         imageSrc = `images/product-${item.code}.jpeg`;
         dataJpg = `images/product-${item.code}.jpg`;
@@ -221,15 +236,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 modalImg.onerror = null;
                 modalImg.src = 'images/chernalaisna.png';
             } else {
-                // Standard product images - try .jpeg first, fallback to .jpg if not found
-                const jpegSrc = `images/product-${code}.jpeg`;
-                const jpgSrc = `images/product-${code}.jpg`;
-                modalImg.onerror = function () {
-                    if (modalImg.src.endsWith('.jpeg')) {
-                        modalImg.src = jpgSrc;
-                    }
-                };
-                modalImg.src = jpegSrc;
+                // Special handling for AKIM-FOLI products
+                if (code && code.startsWith('AKIM-FOLI-')) {
+                    const num = code.slice(-3);
+                    modalImg.onerror = null;
+                    modalImg.src = `images/product-AKIM-FOLI-${num}.jpeg`;
+                } else {
+                    // Standard product images - try .jpeg first, fallback to .jpg if not found
+                    const jpegSrc = `images/product-${code}.jpeg`;
+                    const jpgSrc = `images/product-${code}.jpg`;
+                    modalImg.onerror = function () {
+                        if (modalImg.src.endsWith('.jpeg')) {
+                            modalImg.src = jpgSrc;
+                        }
+                    };
+                    modalImg.src = jpegSrc;
+                }
             }
         }
         

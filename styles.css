@@ -168,6 +168,49 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /* Enhanced table styling */
+
+/* Out of Stock Overlay Styles */
+.out-of-stock-img {
+    filter: grayscale(0.4) brightness(0.97);
+    opacity: 0.93;
+    pointer-events: auto;
+    cursor: pointer;
+    transition: filter 0.3s, opacity 0.3s;
+}
+.out-of-stock-clickable {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+.out-of-stock-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(55, 65, 81, 0.38); /* lighter overlay for visibility */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    border-radius: inherit;
+    pointer-events: none; /* overlay does not block interaction */
+}
+.out-of-stock-label {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.19);
+    background: rgba(139, 92, 246, 0.85); /* purple-500 w/ opacity */
+    padding: 0.5em 1.2em;
+    border-radius: 1.2em;
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.10);
+    font-family: inherit;
+}
+@media (max-width: 640px) {
+    .out-of-stock-label {
+        font-size: 1rem;
+        padding: 0.4em 0.9em;
+    }
+}
+
 .print-table {
     border-radius: var(--border-radius);
     overflow: hidden;

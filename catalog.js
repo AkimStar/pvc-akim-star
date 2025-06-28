@@ -26,6 +26,22 @@ document.addEventListener('DOMContentLoaded', async function() {
         overlay.innerHTML = '<span class="out-of-stock-label">Изчерпано</span>';
         wrapper.appendChild(overlay);
     });
+
+    // For demo-gallery-img with data-code="AKIM-PVCP-002"
+    document.querySelectorAll('.demo-gallery-img[data-code="AKIM-PVCP-002"]').forEach(function(img) {
+        img.classList.add('out-of-stock-img');
+        // Wrap img in a relative div for overlay
+        const wrapper = document.createElement('div');
+        wrapper.style.position = 'relative';
+        wrapper.style.display = 'inline-block';
+        img.parentNode.insertBefore(wrapper, img);
+        wrapper.appendChild(img);
+        // Create overlay
+        const overlay = document.createElement('div');
+        overlay.className = 'out-of-stock-overlay';
+        overlay.innerHTML = '<span class="out-of-stock-label">Изчерпано</span>';
+        wrapper.appendChild(overlay);
+    });
 });
 
 // Function to populate product tables from JSON data
@@ -73,10 +89,10 @@ function populateProductTables(data) {
         imgSrc = `images/product-${item.code}.jpeg`;
         imgDataJpg = `images/product-${item.code}.jpg`;
     }
-    imageTd.innerHTML = `<img src="${imgSrc}" data-jpg="${imgDataJpg}" alt="${item.name_bg}" class="w-28 h-20 object-contain mx-auto rounded-xl shadow border-2 border-purple-100 bg-white product-image-placeholder${item.code === 'AKIM-FOLI-005' ? ' out-of-stock-img out-of-stock-clickable' : ''}" data-code="${item.code}" onerror="if(this.src.endsWith('.jpeg')) this.src=this.getAttribute('data-jpg'); else this.onerror=null; this.outerHTML='<div class=\'w-28 h-20 flex items-center justify-center text-xs text-gray-400 bg-gray-50 border rounded-xl\'>Изображение</div>';">`;
+    imageTd.innerHTML = `<img src="${imgSrc}" data-jpg="${imgDataJpg}" alt="${item.name_bg}" class="w-28 h-20 object-contain mx-auto rounded-xl shadow border-2 border-purple-100 bg-white product-image-placeholder${(item.code === 'AKIM-FOLI-005' || item.code === 'AKIM-PVCP-002') ? ' out-of-stock-img out-of-stock-clickable' : ''}" data-code="${item.code}" onerror="if(this.src.endsWith('.jpeg')) this.src=this.getAttribute('data-jpg'); else this.onerror=null; this.outerHTML='<div class=\'w-28 h-20 flex items-center justify-center text-xs text-gray-400 bg-gray-50 border rounded-xl\'>Изображение</div>';">`;
 
     // Overlay for out-of-stock on mobile cards
-    if (item.code === 'AKIM-FOLI-005') {
+    if (item.code === 'AKIM-FOLI-005' || item.code === 'AKIM-PVCP-002') {
         const img = imageTd.querySelector('img');
         if (img) {
             const wrapper = document.createElement('div');
@@ -214,8 +230,8 @@ function createProductRow(item, index) {
     row.appendChild(sizeTd);
     row.appendChild(priceTd);
 
-    // --- OUT OF STOCK OVERLAY FOR AKIM-FOLI-005 ---
-    if (item.code === 'AKIM-FOLI-005') {
+    // --- OUT OF STOCK OVERLAY FOR EXPIRED PRODUCTS ---
+    if (item.code === 'AKIM-FOLI-005' || item.code === 'AKIM-PVCP-002') {
         // Find the image cell (assume always the 3rd td)
         const imageTd = row.children[2];
         if (imageTd) {
